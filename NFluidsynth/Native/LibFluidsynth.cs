@@ -36,13 +36,13 @@ namespace NFluidsynth.Native
                     IntPtr handle;
                     if (name == LibraryName)
                     {
-                        if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                        if (OperatingSystem.IsLinux() || OperatingSystem.IsAndroid())
                         {
                             // Assumption here is that this binds against whatever API .3 is,
                             //  but will try the general name anyway just in case.
                             if (NativeLibrary.TryLoad("libfluidsynth.so.3", assembly, path, out handle))
                             {
-                                LibFluidsynth.LibraryVersion = 3;
+                                LibraryVersion = 3;
                                 return handle;
                             }
 
@@ -53,9 +53,17 @@ namespace NFluidsynth.Native
                                 return handle;
                         }
 
-                        if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                        if (OperatingSystem.IsMacOS() || OperatingSystem.IsMacCatalyst())
                         {
                             if (NativeLibrary.TryLoad("libfluidsynth.dylib", assembly, path, out handle))
+                                return handle;
+                        }
+                        
+                        if (OperatingSystem.IsWindows())
+                        {
+                            if (NativeLibrary.TryLoad("libfluidsynth.dll", assembly, path, out handle))
+                                return handle;
+                            if (NativeLibrary.TryLoad("libfluidsynth-3.dll", assembly, path, out handle))
                                 return handle;
                         }
                     }
