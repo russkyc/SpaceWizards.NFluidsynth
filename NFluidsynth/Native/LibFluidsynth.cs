@@ -61,9 +61,16 @@ namespace NFluidsynth.Native
                         
                         if (OperatingSystem.IsWindows())
                         {
+                            if (NativeLibrary.TryLoad("libfluidsynth-3.dll", assembly, path, out handle))
+                            {
+                                LibraryVersion = 3;
+                                return handle;
+                            }
+                            
                             if (NativeLibrary.TryLoad("libfluidsynth.dll", assembly, path, out handle))
                                 return handle;
-                            if (NativeLibrary.TryLoad("libfluidsynth-3.dll", assembly, path, out handle))
+                            
+                            if (NativeLibrary.TryLoad("libfluidsynth-2.dll", assembly, path, out handle))
                                 return handle;
                         }
                     }
