@@ -43,6 +43,8 @@ namespace NFluidsynth
 		public const string AudioPortAudioDevice = "audio.portaudio.device";
 		public const string AudioPulseAudioDevice = "audio.pulseaudio.device";
 		public const string AudioPulseAudioServer = "audio.pulseaudio.server";
+		public const string OboePerformanceMode = "audio.oboe.performance-mode";
+		public const string OboeSharingMode = "audio.oboe.sharing-mode";
 		public const string MidiDriver = "midi.driver";
 		public const string MidiRealTimePriority = "midi.realtime-prio";
 		public const string MidiAlsaDevice = "midi.alsa.device";

@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Version>0.3.0</Version>
+    <Version>0.3.1</Version>
     <AssemblyName>SpaceWizards.NFluidsynth</AssemblyName>
     <RootNamespace>NFluidsynth</RootNamespace>
     <IncludeSymbols>true</IncludeSymbols>
@@ -11,7 +11,7 @@
     
     <!-- NuGet properties. --> 
     <PackageId>SpaceWizards.NFluidsynth</PackageId>
-    <Authors>atsushi, Space Wizards</Authors>
+    <Authors>atsushi, Space Wizards, russkyc</Authors>
     <RepositoryType>Git</RepositoryType>
     <RepositoryUrl>https://github.com/space-wizards/SpaceWizards.NFluidsynth</RepositoryUrl>
     <PackageProjectUrl>https://github.com/space-wizards/SpaceWizards.NFluidsynth</PackageProjectUrl>
@@ -28,6 +28,8 @@
     <TargetFramework>net8.0</TargetFramework>
     
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    
+    <Title>SpaceWizards.NFluidsynth</Title>
   </PropertyGroup>
 
   <ItemGroup>
