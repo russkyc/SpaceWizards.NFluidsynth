@@ -40,6 +40,11 @@ namespace NFluidsynth.Native
                         {
                             // Assumption here is that this binds against whatever API .3 is,
                             //  but will try the general name anyway just in case.
+                            if (NativeLibrary.TryLoad("libfluidlite.so", assembly, path, out handle))
+                            {
+                                LibraryVersion = 3;
+                                return handle;
+                            }
                             if (NativeLibrary.TryLoad("libfluidsynth.so.3", assembly, path, out handle))
                             {
                                 LibraryVersion = 3;
@@ -61,6 +66,11 @@ namespace NFluidsynth.Native
                         
                         if (OperatingSystem.IsWindows())
                         {
+                            if (NativeLibrary.TryLoad("fluidlite.dll", assembly, path, out handle))
+                            {
+                                LibraryVersion = 3;
+                                return handle;
+                            }
                             if (NativeLibrary.TryLoad("libfluidsynth-3.dll", assembly, path, out handle))
                             {
                                 LibraryVersion = 3;
